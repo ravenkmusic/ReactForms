@@ -6,14 +6,25 @@ export default function SignUpForm(){
     const [ password, setPassword ] = useState("");
     const [ error, setError ] = useState(null);
 
+    async function handleSubmit(event){
+        event.preventDefault();
+        console.log("Submitted!");
+    }
+
     return <div>
         <h2>Sign Up!</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>
-                    Username: <input />
-                </label>
+                    Username: <input 
+                    value={username} 
+                    onChange={(event) => 
+                    setUserName(event.target.value)} />
+                </label> 
                 <label>
-                    Password: <input />Password
+                    Password: <input 
+                    value ={password}
+                    onChange={(event) =>
+                    setPassword(event.target.value)} />
                 </label>
                 <button>Submit</button>
             </form>
