@@ -1,6 +1,6 @@
 import './App.css';
 import { useState } from 'react';
-import Authenticate from './components/Authenitcate';
+import Authenticate from './components/Authenticate';
 import SignUpForm from './components/SignUpForm';
 
 function App() {
