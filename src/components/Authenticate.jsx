@@ -18,6 +18,9 @@ export default function Authenticate({ token }){
                 }
             );
             const result = await response.json();
+            if (!response.ok){
+                throw new Error(result.message);
+            }
             console.log(result);
             setSuccessMessage(`${result.message} Welcome, ${result.data.username}`);
         } catch (error) {

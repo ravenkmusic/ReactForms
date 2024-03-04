@@ -12,9 +12,17 @@ export default function SignUpForm({ setToken }){
         try {
             const response = await fetch(`${API_URL}`, {
                 method: "POST",
+                headers:{
+                    "Content-Type": 'application/json',
+                },
                 body: JSON.stringify({ username }, { password }),
             });
             const result = await response.json();
+            
+            if (!response.ok){
+                throw new Error(result.message);
+            }
+
             console.log(result);
             setToken(result.token);
         } catch (error) {
