@@ -22,7 +22,7 @@ export default function Authenticate({ token }){
                 throw new Error(result.message);
             }
             console.log(result);
-            setSuccessMessage(`${result.message} Welcome, ${result.data.username}`);
+            setSuccessMessage(`${result.message} Welcome, ${result.data.username}!`);
         } catch (error) {
             setError(error.message);
         }
