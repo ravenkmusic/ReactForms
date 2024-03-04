@@ -8,19 +8,20 @@ export default function Authenticate({ token }){
 
     async function handleClick(){
         try {
-            const response = await fetch(`${authenticationAPIURL}`, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`,
+            const response = await fetch(`${authenticationAPIURL}`, 
+                    {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`,
+                    }
                 }
-            });
-            const result = response.json();
-            console.log(result);
+            );
+            const result = await response.json();
+            setSuccessMessage(result.message)
         } catch (error) {
             setError(error.message);
         }
-        console.log("Clicked!");
     }
     return( 
         <div>
