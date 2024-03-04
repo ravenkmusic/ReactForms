@@ -10,7 +10,7 @@ function App() {
     <Authenticate />
     <SignUpForm />
     </>
-  )
+  );
 }
 
 export default App
